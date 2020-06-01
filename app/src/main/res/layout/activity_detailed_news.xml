@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DetailedNews">
+
+        <ImageView
+            android:id="@+id/mainImageView"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/authorTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="hindustantimes.com | Edited by Sohini Sarkar"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainImageView" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:text="‘Army won’t be deployed in Mumbai, will fight Covid-19 together’: Uddhav Thackeray - Hindustan Times"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authorTextView"
+            android:onClick="onClickArticleTitle"
+            android:clickable="true" />
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="He said additional security manpower may be sought from the Union government if needed so that the Mumbai Police personnel get some respite from dealing with the crisis."
+            android:textSize="15dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+        <TextView
+            android:id="@+id/contentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:text="Kerala on Friday completed 100 days since the first coronavirus case was reported on Jan 30 and chief minister Pinarayi Vijayan said the Covid 19 curve in the state had flattened marked by high recovery and low mortality rate.\r\nJust one single positive case w… [+2686 chars]"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionTextView" />
+
+        <TextView
+            android:id="@+id/publishedAtTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:text="2020-05-08T19:51:19Z"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authorTextView" />
+
+        <TextView
+            android:id="@+id/articleUrlTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:autoLink="web"
+            android:clickable="true"
+            android:linksClickable="true"
+            android:textColor="@android:color/holo_blue_dark"
+            android:text="Read full article here >>"
+            android:textColorLink="@android:color/holo_blue_dark"
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="onClickArticleUrl"
+            app:layout_constraintTop_toBottomOf="@+id/contentTextView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+
