@@ -112,16 +112,16 @@ public class businessTab extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        //Log.i("myStr", "Shraddha Kapoor");
+
 
         // Inflate the layout for this fragment
 
-        //Log.i("Home.actress", Home.actress);
+
 
         businessDB=getContext().openOrCreateDatabase("business", Context.MODE_PRIVATE, null);
         businessDB.execSQL("CREATE TABLE IF NOT EXISTS business (id INTEGER PRIMARY KEY, articleAuthor VARCHAR, articleTitle VARCHAR, articleDescription VARCHAR, articleImageUrl VARCHAR, articlePublishedAt VARCHAR, articleContent VARCHAR, articleUrl VARCHAR)");
 
-        Log.i("Test ", "Himanshu");
+
 
         Log.i("arrayOfJsons[1] ", MainActivity.arrayOfJsons[1]);
 
@@ -142,11 +142,9 @@ public class businessTab extends Fragment
             e.printStackTrace();
         }*/
 
-        Log.i("Test ", "Rithwik");
 
         //updateListView();
 
-        Log.i("Test ", "Yashas");
 
         View view =  inflater.inflate(R.layout.fragment_business_tab, container, false);
         listView=(ListView) view.findViewById(R.id.listView);
@@ -156,8 +154,6 @@ public class businessTab extends Fragment
 
         customAdapter=new CustomAdapter();
         listView.setAdapter(customAdapter);
-
-        Log.i("Test ", "Palash");
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -183,12 +179,7 @@ public class businessTab extends Fragment
         });
 
 
-        Log.i("Test ", "Dhoke");
-
         updateListView();
-
-
-        Log.i("Test ", "Abhinandan");
 
 
         return view;
@@ -222,9 +213,6 @@ public class businessTab extends Fragment
             TextView titleTextView= (TextView) convertView.findViewById(R.id.titleTextView);
             TextView authorTextView= (TextView) convertView.findViewById(R.id.authorTextView);
 
-            Log.i("Test ", "Dwijesh");
-
-            //Log.i("Test ", titles.get(0));
 
             if(imageUrl.size()>0 && imageUrl.get(position)!=null)
             {
@@ -250,12 +238,12 @@ public class businessTab extends Fragment
 
             if(titles.size()>0 && titles.get(position)!=null)
             {
-                Log.i("Test ", titles.get(position));
+                //Log.i("Test ", titles.get(position));
                 titleTextView.setText(titles.get(position));
             }
             if(author.size()>0 && author.get(position)!=null)
             {
-                Log.i("Test ", author.get(position));
+                //Log.i("Test ", author.get(position));
                 authorTextView.setText(author.get(position));
             }
 
@@ -265,110 +253,12 @@ public class businessTab extends Fragment
 
 
 
-    /*public class DownloadTask extends AsyncTask<String, Void, String>
-    {
-        @Override
-        protected String doInBackground(String... urls)
-        {
-            String  result="";
-            URL url;
-            HttpURLConnection httpURLConnection=null;
-
-            try
-            {
-                Log.i("Trial ", "Nikhil");
-
-                url=new URL(urls[0]);
-                httpURLConnection=(HttpURLConnection)url.openConnection();
-                InputStream inputStream=httpURLConnection.getInputStream();
-                InputStreamReader inputStreamReader=new InputStreamReader(inputStream);
-                int data=inputStreamReader.read();
-
-
-                while (data!=-1)
-                {
-                    char current=(char)data;
-                    result+=current;
-                    data=inputStreamReader.read();
-                }
-
-                Log.i("Result ", result);
-                JSONObject jsonObjectOld=new JSONObject(result);
-
-                String articlesInfo=jsonObjectOld.getString("articles");
-
-                JSONArray jsonArray=new JSONArray(articlesInfo);
-
-                businessDB.execSQL("DELETE FROM business");
-
-                for(int i=0;i<jsonArray.length();i++)
-                {
-                    JSONObject jsonObject=jsonArray.getJSONObject(i);
-
-                    if(!jsonObject.isNull("author") && !jsonObject.isNull("title") && !jsonObject.isNull("description") && !jsonObject.isNull("urlToImage") && !jsonObject.isNull("publishedAt") && !jsonObject.isNull("content"))
-                    {
-                        String articleAuthor=jsonObject.getString("author");
-                        String articleTitle=jsonObject.getString("title");
-                        String articleDescription=jsonObject.getString("description");
-                        String articleImageUrl=jsonObject.getString("urlToImage");
-                        String articlePublishedAt=jsonObject.getString("publishedAt");
-                        String articleContent=jsonObject.getString("content");
-
-                        Log.i("Article author: ", articleAuthor);
-                        Log.i("Article title: ", articleTitle);
-                        Log.i("Article description: ", articleDescription);
-                        Log.i("Article image url: ", articleImageUrl);
-                        Log.i("Article published at: ", articlePublishedAt);
-                        Log.i("Article content: ", articleContent);
-
-                        //Inserting articleId, articleTitle ans articleUrl inside the SQL table
-                        //No need to add primary key
-                        String  sql="INSERT INTO business (articleAuthor, articleTitle, articleDescription, articleImageUrl, articlePublishedAt, articleContent) VALUES (?,?,?,?,?,?)";
-                        SQLiteStatement statement=businessDB.compileStatement(sql);
-                        Log.i("Test ", "Skanda");
-                        statement.bindString(1,articleAuthor);
-                        statement.bindString(2,articleTitle);
-                        statement.bindString(3,articleDescription);
-                        statement.bindString(4,articleImageUrl);
-                        statement.bindString(5,articlePublishedAt);
-                        statement.bindString(6,articleContent);
-                        statement.execute();
-                        Log.i("Test ", "Anish");
-                    }
-
-                }
-
-                Log.i("Test ", "Srividya");
-                updateListView();
-                return result;
-
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s)
-        {
-            super.onPostExecute(s);
-            Log.i("Test ", "Rahasya");
-            updateListView();
-        }
-    }*/
-
 
 
     public  void sortOutJsonOrder(String result)
     {
         try
         {
-            Log.i("Trial ", "Nikhil");
-
-
             Log.i("Result ", result);
             JSONObject jsonObjectOld=new JSONObject(result);
 
@@ -392,19 +282,18 @@ public class businessTab extends Fragment
                     String articleContent=jsonObject.getString("content");
                     String articleUrl=jsonObject.getString("url");
 
-                    Log.i("Article author: ", articleAuthor);
-                    Log.i("Article title: ", articleTitle);
-                    Log.i("Article description: ", articleDescription);
-                    Log.i("Article image url: ", articleImageUrl);
-                    Log.i("Article published at: ", articlePublishedAt);
-                    Log.i("Article content: ", articleContent);
-                    Log.i("Article url: ", articleUrl);
+                    //Log.i("Article author: ", articleAuthor);
+                    //Log.i("Article title: ", articleTitle);
+                    //Log.i("Article description: ", articleDescription);
+                    //Log.i("Article image url: ", articleImageUrl);
+                    //Log.i("Article published at: ", articlePublishedAt);
+                    //Log.i("Article content: ", articleContent);
+                    //Log.i("Article url: ", articleUrl);
 
                     //Inserting articleId, articleTitle ans articleUrl inside the SQL table
                     //No need to add primary key
                     String  sql="INSERT INTO business (articleAuthor, articleTitle, articleDescription, articleImageUrl, articlePublishedAt, articleContent, articleUrl) VALUES (?,?,?,?,?,?,?)";
                     SQLiteStatement statement=businessDB.compileStatement(sql);
-                    Log.i("Test ", "Skanda");
                     statement.bindString(1,articleAuthor);
                     statement.bindString(2,articleTitle);
                     statement.bindString(3,articleDescription);
@@ -413,12 +302,10 @@ public class businessTab extends Fragment
                     statement.bindString(6,articleContent);
                     statement.bindString(7,articleUrl);
                     statement.execute();
-                    Log.i("Test ", "Anish");
                 }
 
             }
 
-            Log.i("Test ", "Srividya");
             updateListView();
 
         }
@@ -436,12 +323,9 @@ public class businessTab extends Fragment
 
     public void updateListView()
     {
-        Log.i("Test ", "Arpitha");
-
         Cursor c=businessDB.rawQuery("SELECT * FROM business", null);
 
         int authorIndex=c.getColumnIndex("articleAuthor");
-        Log.i("Test ", Integer.toString(authorIndex));
         int titleIndex=c.getColumnIndex("articleTitle");
         int descriptionIndex=c.getColumnIndex("articleDescription");
         int imageUrlIndex=c.getColumnIndex("articleImageUrl");
@@ -449,7 +333,6 @@ public class businessTab extends Fragment
         int contentIndex=c.getColumnIndex("articleContent");
         int articleUrlIndex=c.getColumnIndex("articleUrl");
 
-        Log.i("Test ", "Deepak");
 
         if(c.moveToFirst()) {
             author.clear();
@@ -462,8 +345,6 @@ public class businessTab extends Fragment
 
 
             do {
-
-                //Log.i("Trial: ", c.getString(authorIndex));
                 author.add(c.getString(authorIndex));
                 titles.add(c.getString(titleIndex));
                 description.add(c.getString(descriptionIndex));
@@ -476,8 +357,6 @@ public class businessTab extends Fragment
             } while (c.moveToNext());
 
 
-            Log.i("Test ", "Himani");
-            //Log.i("Test ", titles.get(2));
 
             customAdapter.notifyDataSetChanged();
         }

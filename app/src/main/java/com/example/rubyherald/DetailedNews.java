@@ -111,40 +111,13 @@ public class DetailedNews extends AppCompatActivity
         publishedAtTextView.setText(publishedAt);
         contentTextView.setText(content);
 
-        /*HashSet<String>hs= (HashSet<String>) sharedPreferences.getStringSet("savedDetails", null);
-        if(hs==null)
-        {
-            titleTextView.setTextColor(Color.WHITE);
-        }
-        else if(hs!=null || hs.contains(title))
-        {
-            titleTextView.setTextColor(Color.RED);
-        }*/
 
-
-        /*articleUrlTextView.setClickable(true);
-        //articleUrlTextView.setMovementMethod(LinkMovementMethod.getInstance());
-        //String text = "<a href='http://www.google.com'>Read full article here</a>";
-        //articleUrlTextView.setText(Html.fromHtml(text));
-        Spanned Text = Html.fromHtml("Read full article here <br>"+"<a href='"+imageUrl+"'>"+imageUrl+"</a>");
-        articleUrlTextView.setMovementMethod(LinkMovementMethod.getInstance());
-        articleUrlTextView.setText(Text);*/
 
         gson = new Gson();
 
 
         sharedPreferences=getApplicationContext().getSharedPreferences("com.example.rubyherald", Context.MODE_PRIVATE);
 
-        /*ImageDownloader task=new ImageDownloader();
-        try
-        {
-            Bitmap myImage = task.execute(imageUrl).get();
-            imageView.setImageBitmap(myImage);
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }*/
 
         Glide.with(this)
                 .load(imageUrl)
@@ -194,31 +167,6 @@ public class DetailedNews extends AppCompatActivity
             savedArticleDetails.add(content);
             savedArticleDetails.add(articleUrl);
 
-            /*Log.i("savedDetails.size() ",Integer.toString(savedArticleDetails.size()));
-
-            if(savedArticleDetails.get(1)!=null)
-            {
-                Log.i("savedDetails.get(1)", savedArticleDetails.get(1));
-            }
-
-            if(savedArticleDetails.size()>6 && savedArticleDetails.size()<=12)
-            {
-                Log.i("savedDetails.get(7)", savedArticleDetails.get(7));
-            }
-
-            if(savedArticleDetails.size()>12 && savedArticleDetails.size()<=18)
-            {
-                Log.i("savedDetails.get(7)", savedArticleDetails.get(7));
-                Log.i("savedDetails.get(13)", savedArticleDetails.get(13));
-            }
-
-            if(savedArticleDetails.size()>18 && savedArticleDetails.size()<=24)
-            {
-                Log.i("savedDetails.get(7)", savedArticleDetails.get(7));
-                Log.i("savedDetails.get(13)", savedArticleDetails.get(13));
-                Log.i("savedDetails.get(19)", savedArticleDetails.get(19));
-            }*/
-
 
             prefs = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = prefs.edit();
@@ -227,19 +175,13 @@ public class DetailedNews extends AppCompatActivity
             editor.apply();     // This line is IMPORTANT !!
 
             HashSet<String> hs2=new HashSet<>(savedArticleDetails);
-            //Log.i("hs2", hs2.toString());
-            //hs2.clear();
-            Log.i("hs2", hs2.toString());
-            sharedPreferences.edit().putStringSet("savedDetails", hs2).apply();// !
-            Log.i("hs2", hs2.toString());
+            sharedPreferences.edit().putStringSet("savedDetails", hs2).apply();
 
 
         }
         else
         {
             //Do nothing
-            //savedArticleDetails=new ArrayList(hs);
-            //Log.i("savedDetails", savedArticleDetails.toString());
             Toast.makeText(this, "This article is alrready saved", Toast.LENGTH_SHORT).show();
         }
 

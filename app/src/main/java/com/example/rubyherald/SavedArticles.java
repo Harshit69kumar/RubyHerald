@@ -105,42 +105,6 @@ public class SavedArticles extends AppCompatActivity implements NavigationView.O
         customAdapter=new CustomAdapter();
         listView.setAdapter(customAdapter);
 
-        /*if(savedArticleDetails69==null)
-        {
-            savedArticleDetails69=new ArrayList<String>();
-        }*/
-
-
-
-        /*SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        gson = new Gson();
-        json = prefs.getString("messi", null);
-        type = new TypeToken<ArrayList<String>>() {}.getType();
-        savedArticleDetails69= gson.fromJson(json, type);*/
-
-
-
-        /*Log.i("savedDetails69.size() ",Integer.toString(savedArticleDetails69.size()/6));
-        int ctr=0;
-
-        for(int i=0;i<(savedArticleDetails69.size())/6;i++)
-        {
-            //Log.i("savedArticle.get(0)", savedArticleDetails69.get(ctr+0));
-            savedAuthor.add(savedArticleDetails69.get(ctr+0));
-            Log.i("savedArticle.get(1)", savedArticleDetails69.get(ctr+1));
-            savedTitle.add(savedArticleDetails69.get(ctr+1));
-            //Log.i("savedArticle.get(2)", savedArticleDetails69.get(ctr+2));
-            savedDescription.add(savedArticleDetails69.get(ctr+2));
-            //Log.i("savedArticle.get(3)", savedArticleDetails69.get(ctr+3));
-            savedImageUrl.add(savedArticleDetails69.get(ctr+3));
-            //Log.i("savedArticle.get(4)", savedArticleDetails69.get(ctr+4));
-            savedPublishedAt.add(savedArticleDetails69.get(ctr+4));
-            //Log.i("savedArticle.get(5)", savedArticleDetails69.get(ctr+5));
-            savedContent.add(savedArticleDetails69.get(ctr+5));
-
-            ctr=ctr+6;
-        }*/
-
 
 
         Log.i("savedDetails.size() ",Integer.toString(DetailedNews.savedArticleDetails.size()/6));
@@ -148,19 +112,12 @@ public class SavedArticles extends AppCompatActivity implements NavigationView.O
 
         for(int i=0;i<(DetailedNews.savedArticleDetails.size())/7;i++)
         {
-            //Log.i("savedArticle.get(0)", savedArticleDetails69.get(ctr+0));
             savedAuthor.add(DetailedNews.savedArticleDetails.get(ctr+0));
-            //Log.i("savedArticle.get(1)", DetailedNews.savedArticleDetails.get(ctr+1));
             savedTitle.add(DetailedNews.savedArticleDetails.get(ctr+1));
-            //Log.i("savedArticle.get(2)", savedArticleDetails69.get(ctr+2));
             savedDescription.add(DetailedNews.savedArticleDetails.get(ctr+2));
-            //Log.i("savedArticle.get(3)", savedArticleDetails69.get(ctr+3));
             savedImageUrl.add(DetailedNews.savedArticleDetails.get(ctr+3));
-            //Log.i("savedArticle.get(4)", savedArticleDetails69.get(ctr+4));
             savedPublishedAt.add(DetailedNews.savedArticleDetails.get(ctr+4));
-            //Log.i("savedArticle.get(5)", savedArticleDetails69.get(ctr+5));
             savedContent.add(DetailedNews.savedArticleDetails.get(ctr+5));
-            //Log.i("savedArticle.get(6)", savedArticleDetails69.get(ctr+6));
             savedContent.add(DetailedNews.savedArticleDetails.get(ctr+6));
 
             ctr=ctr+7;
@@ -168,24 +125,9 @@ public class SavedArticles extends AppCompatActivity implements NavigationView.O
 
 
 
-
-        //Log.i("savedTitle.size()", Integer.toString(savedTitle.size()));
-
-
-        //arrayAdapter=new ArrayAdapter(this, android.R.layout.simple_list_item_1, savedTitle);
-        //listView.setAdapter(arrayAdapter);
-
         customAdapter.notifyDataSetChanged();
 
 
-        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(getApplicationContext(), DetailedNews.class);
-                intent.putExtra("articleDetails", new String[]{savedArticleDetails69.get(position*6+0), savedArticleDetails69.get(position*6+1), savedArticleDetails69.get(position*6+2), savedArticleDetails69.get(position*6+3), savedArticleDetails69.get(position*6+4), savedArticleDetails69.get(position*6+5)});
-                startActivity(intent);
-            }
-        });*/
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

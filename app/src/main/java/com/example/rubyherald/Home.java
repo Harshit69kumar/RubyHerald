@@ -35,7 +35,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     AppBarConfiguration mAppBarConfiguration;
     NavigationView navigationView;
 
-    static String actress;
 
     static String arrayOfJsons[];
 
@@ -46,19 +45,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        actress="Ilena D Cruz";
 
-        Log.i("Trial ", "Sandeep");
 
-        /*Intent intent=getIntent();
-        arrayOfJsons=intent.getStringArrayExtra("articleDetails");
-
-        for(int i=0;i<arrayOfJsons.length;i++)
-        {
-            Log.i("arrayOfJsons", arrayOfJsons[i]);
-        }*/
-
-        Log.i("Trial ", "Kiran");
 
         tabLayout=(TabLayout)findViewById(R.id.tabLayout);
 
@@ -79,13 +67,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         bundle.putString("my_key", "Alia Bhatt");
         myFrag.setArguments(bundle);*/
 
-        actress="Alia Bhatt";
+
 
 
         pagerAdapter=new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
 
-        actress="Shraddha Kapoor";
+
 
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -135,12 +123,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             }
         });
 
-        actress="Pooja Hegde";
+
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
 
-        actress="Deepika Padukone";
+
 
 
 
